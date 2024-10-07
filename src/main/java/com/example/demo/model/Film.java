@@ -13,10 +13,13 @@ import java.time.LocalDate;
 @Getter
 @Setter
 public class Film extends AbstractFilm {
+
     private int id;
 
     @Builder
-    public Film(String name, String description, LocalDate releaseDate, int duration) {
+    public Film(String name, String description, LocalDate releaseDate, int duration, int id) {
         super(name, description, releaseDate, duration);
+
+        this.id = id;
     }
 }

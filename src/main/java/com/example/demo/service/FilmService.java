@@ -31,6 +31,7 @@ public class FilmService {
                 .duration(film.getDuration())
                 .releaseDate(film.getReleaseDate())
                 .name(film.getName())
+                .id(this.getCurrentId())
                 .build();
         films.put(newFilm.getId(), newFilm);
 
