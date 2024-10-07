@@ -1,0 +1,23 @@
+#DB_URL: jdbc:postgresql://localhost:5440/еуые
+#DB_USERNAME: postgres
+#DB_PASSWORD: postgres
+
+version: '3.3'
+services:
+  test-database-service:
+    image: postgres:latest
+    container_name: test-database-service
+    restart: unless-stopped
+    ports:
+      - "5440:5432"
+    environment:
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=postgres
+      - POSTGRES_DB=test
+      - POSTGRES_HOST=test-database-service
+      - POSTGRES_HOST_AUTH_METHOD=trust
+    volumes:
+      - database-data:/var/lib/postgresql/test/data/ # persist data even if container shuts downvolumes:
+volumes:
+  database-data:
+    driver: local
