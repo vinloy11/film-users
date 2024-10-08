@@ -33,6 +33,7 @@ dependencies {
 	testRuntimeOnly 'org.junit.platform:junit-platform-launcher'
 	implementation group: 'org.springdoc', name: 'springdoc-openapi-starter-webmvc-ui', version: '2.6.0'
 	implementation group: 'org.springframework.boot', name: 'spring-boot-starter-validation', version: '3.3.4'
+	testImplementation group: 'org.mockito', name: 'mockito-core', version: '2.1.0'
 }
 
 tasks.named('test') {
