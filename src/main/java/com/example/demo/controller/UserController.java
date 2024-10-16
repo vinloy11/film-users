@@ -9,6 +9,7 @@ import lombok.extern.slf4j.Slf4j;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+import java.util.Optional;
 
 @Slf4j
 @RestController
@@ -18,7 +19,7 @@ public class UserController {
     private final UserService userService;
 
     @GetMapping("/{id}")
-    public User getById(@Valid @PathVariable int id) {
+    public Optional<User> getById(@Valid @PathVariable int id) {
         return this.userService.getUserById(id);
     }
 
