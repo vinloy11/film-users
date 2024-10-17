@@ -24,7 +24,7 @@ public class UserController {
     }
 
     @GetMapping
-    public List<User> getFilms() {
+    public List<User> getUsers() {
         return this.userService.getAllUsers();
     }
 
