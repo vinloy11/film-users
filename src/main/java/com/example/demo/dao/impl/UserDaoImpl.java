@@ -10,6 +10,7 @@ import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.support.rowset.SqlRowSet;
 import org.springframework.stereotype.Component;
 
+import java.util.List;
 import java.util.Optional;
 
 @RequiredArgsConstructor
@@ -37,5 +38,25 @@ public class UserDaoImpl implements UserDao {
             return Optional.empty();
         }
     }
+
+    @Override
+    public List<User> getUsers() {
+        String sql = "select * from users";
+
+        return jdbcTemplate.query(sql, (resultSet, rowNum) -> {
+            return User.builder()
+                    .id(resultSet.getInt("id"))
+                    .name(resultSet.getString("name"))
+                    .build();
+        });
+    }
+
+//    @Override
+//    public Optional<User> create(User user) {
+//        String sql =  "select * from users where";
+//        return Optional.empty();
+//    }
+
+//    private User makeUser()
 }
 

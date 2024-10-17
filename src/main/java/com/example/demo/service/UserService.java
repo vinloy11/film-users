@@ -24,11 +24,10 @@ public class UserService {
 
     public Optional<User> getUserById(int id) {
         return this.userDao.findUserById(id);
-//        return users.getOrDefault(id, null);
     }
 
     public List<User> getAllUsers() {
-        return new ArrayList<>(users.values());
+        return this.userDao.getUsers();
     }
 
     public User addUser(AddUserRequestBody user) {
