@@ -12,7 +12,7 @@ import java.time.LocalDate;
 
 @Getter
 @AllArgsConstructor
-public class AbstractFilm {
+public abstract class AbstractFilm {
     @NotBlank(message = "Name is mandatory")
     private String name;
     @Size.List({

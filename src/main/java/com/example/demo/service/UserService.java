@@ -30,24 +30,19 @@ public class UserService {
         return this.userDao.getUsers();
     }
 
-    public User addUser(AddUserRequestBody user) {
+    public Optional<User> addUser(AddUserRequestBody user) {
+
         User newUser = User.builder()
                 .name(user.getName())
                 .email(user.getEmail())
                 .login(user.getLogin())
                 .birthday(user.getBirthday())
-                .id(this.getCurrentId())
                 .build();
 
-        users.put(newUser.getId(), newUser);
-
-        this.setCurrentId(this.getCurrentId() + 1);
-
-        return newUser;
+        return this.userDao.create(newUser);
     }
 
-    public User updateUser(User User) {
-        users.put(User.getId(), User);
-        return User;
+    public Optional<User> updateUser(User user) {
+        return this.userDao.update(user);
     }
 }

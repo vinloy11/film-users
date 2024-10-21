@@ -29,12 +29,12 @@ public class UserController {
     }
 
     @PostMapping
-    public User create(@Valid @RequestBody AddUserRequestBody user) {
+    public Optional<User> create(@Valid @RequestBody AddUserRequestBody user) {
         return this.userService.addUser(user);
     }
 
     @PutMapping
-    public User update(@Valid @RequestBody User user) {
+    public Optional<User> update(@Valid @RequestBody User user) {
         return this.userService.updateUser(user);
     }
 }

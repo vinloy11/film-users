@@ -12,7 +12,7 @@ import java.time.LocalDate;
 
 @Getter
 @AllArgsConstructor
-public class AbstractUser {
+public abstract class AbstractUser {
     private int id;
     @Email
     private String email;
